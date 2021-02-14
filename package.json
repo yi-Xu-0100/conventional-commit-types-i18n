@@ -1,0 +1,48 @@
+{
+  "name": "conventional-commit-types-i18n",
+  "version": "1.0.0",
+  "description": "conventional-commit-types internationalization version.",
+  "main": "lib/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "pretest": "npm run build",
+    "test": "mocha './lib/test/**/*.js' --reporter spec",
+    "postcoverage": "nyc report --reporter=json",
+    "coverage": "nyc npm run test",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yi-Xu-0100/conventional-commit-types-i18n.git"
+  },
+  "keywords": [
+    "i18n",
+    "commit",
+    "conventional-commit",
+    "conventional-commit-types",
+    "conventional-commit-types-i18n"
+  ],
+  "author": "yi-xu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yi-Xu-0100/conventional-commit-types-i18n/issues"
+  },
+  "homepage": "https://github.com/yi-Xu-0100/conventional-commit-types-i18n#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.15",
+    "@types/mocha": "^8.2.0",
+    "@types/node": "^14.14.27",
+    "chai": "^4.3.0",
+    "codecov": "^3.8.1",
+    "mocha": "^8.3.0",
+    "nyc": "^15.1.0",
+    "prettier": "^2.2.1",
+    "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^4.1.5"
+  }
+}

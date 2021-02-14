@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "引入新特性",
+      "title": "Features"
+    },
+    "fix": {
+      "description": "修复 Bug",
+      "title": "Bug Fixes"
+    },
+    "docs": {
+      "description": "添加或者更新文档",
+      "title": "Documentation"
+    },
+    "style": {
+      "description": "不会影响代码含义的更改（空格，格式，缺少分号等）",
+      "title": "Styles"
+    },
+    "refactor": {
+      "description": "既不是修复 Bug 也不是添加特性的代码更改",
+      "title": "Code Refactoring"
+    },
+    "perf": {
+      "description": "更改代码以提高性能",
+      "title": "Performance Improvements"
+    },
+    "test": {
+      "description": "添加或者更新测试",
+      "title": "Tests"
+    },
+    "build": {
+      "description": "影响构建系统或外部依赖项的更改（示例作用域: gulp, broccoli, npm）",
+      "title": "Builds"
+    },
+    "ci": {
+      "description": "对 CI 配置文件和脚本的更改（示例作用域: Travis, Circle, BrowserStack, SauceLabs）",
+      "title": "Continuous Integrations"
+    },
+    "chore": {
+      "description": "其他不会修改源文件或者测试文件的更改",
+      "title": "Chores"
+    },
+    "revert": {
+      "description": "恢复到上一个版本",
+      "title": "Reverts"
+    }
+  }
+}
