@@ -8,7 +8,8 @@
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "tsc",
+    "build": "rimraf lib/ coverage/ && tsc && node lib/tools/publish.js",
+    "locale": "copy locale/ lib/locale/",
     "coverage": "npm run build && jest --coverage",
     "test": "npm run build && jest",
     "format": "prettier --write \"**/*.{ts,md,json,yml,yaml}\"",
@@ -32,7 +33,7 @@
     "coverageDirectory": "coverage",
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testRegex": "lib/test/.*\\.js$"
+    "testRegex": "lib/tests/.*\\.js$"
   },
   "repository": {
     "type": "git",
@@ -61,6 +62,7 @@
     "nodemon": "^2.0.7",
     "pinst": "^2.1.4",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "ts-jest": "^26.5.1",
     "ts-node": "^9.1.1",
     "tslint": "^6.1.3",

@@ -8,6 +8,6 @@
     "lib": ["es6"],
     "sourceMap": true
   },
-  "include": ["src", "test"],
+  "include": ["src", "tests", "tools"],
   "exclude": ["node_modules"]
 }

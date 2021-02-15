@@ -34,7 +34,6 @@ jobs:
         with:
           name: actions ${{ matrix.node }}
           fail_ci_if_error: true
-          verbose: true
 
       - name: Run lint-check
         run: npm run lint-check
