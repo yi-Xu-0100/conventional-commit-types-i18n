@@ -1,3 +1,3 @@
 {
-  "conventionalCommits.scopes": ["package.json"]
+  "conventionalCommits.scopes": ["package.json", "actions"]
 }

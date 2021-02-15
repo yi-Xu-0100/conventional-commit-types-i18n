@@ -1,23 +1,39 @@
 name: codecov
-on: push
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
 jobs:
-  run:
+  test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12, 14, 15]
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.3.4
 
-      - name: Use Node 14
+      - name: Setup node
         uses: actions/setup-node@v2.1.4
         with:
-          node-version: '14'
+          node-version: ${{ matrix.node }}
 
-      - name: npm install, build, and test
+      - name: Setup package
         run: |
+          node --version
           npm install
-          npm run coverage
 
-      - uses: codecov/codecov-action@v1
+      - name: Run test and generate coverage
+        run: npm run coverage
+
+      - name: Upload coverage to codecov
+        uses: codecov/codecov-action@v1.2.1
         with:
-          fail_ci_if_error: true
-          verbose: true
+          name: actions ${{ matrix.node }}
+          fail_ci_if_error: false
+
+      - name: Run lint-check
+        run: npm run lint-check
