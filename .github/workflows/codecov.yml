@@ -4,20 +4,20 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v2
-    
-    - name: Use Node 14
-      uses: actions/setup-node@v2.1.4
-      with:
-        node-version: '14'
+      - name: Checkout Code
+        uses: actions/checkout@v2
 
-    - name: npm install, build, and test
-      run: |
-        npm install
-        npm run coverage
+      - name: Use Node 14
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '14'
 
-    - uses: codecov/codecov-action@v1
-      with:
-        fail_ci_if_error: true
-        verbose: true
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run coverage
+
+      - uses: codecov/codecov-action@v1
+        with:
+          fail_ci_if_error: true
+          verbose: true
