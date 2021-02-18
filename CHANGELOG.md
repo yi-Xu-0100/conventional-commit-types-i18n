@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.0.2...v1.1.0) (2021-02-18)
+
+
+### Features
+
+* **package.json:** 🎨 add type for typescript ([d8af967](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/d8af967ce53da6ddc508e5d8833f1522afd75c33))
+
 ### [1.0.2](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.0.1...v1.0.2) (2021-02-18)
 
 
