@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.2...v1.2.0) (2021-02-18)
+
+
+### Features
+
+* **README:** 📝 add codecov badge ([ca5480e](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/ca5480efc83c30964240b53b6f7806c3a32a74fe))
+
 ### [1.1.2](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.1...v1.1.2) (2021-02-18)
 
 
