@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.1](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.0...v1.1.1) (2021-02-18)
+
+
+### Bug Fixes
+
+* **package.json:** 🐛 fix name for publishing ([e6ca8d7](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/e6ca8d7ddc50dd83648d2b17866bcee38f363a12))
+
 ## [1.1.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.0.2...v1.1.0) (2021-02-18)
 
 
