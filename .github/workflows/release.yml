@@ -38,7 +38,7 @@ jobs:
           npm run locale
 
       - name: Publish package to GPR
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -49,6 +49,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Publish package to npmjs
-        run: npm publish
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
