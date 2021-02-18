@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.0.1...v1.0.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* **actions:** 🐛 fix access error ([dd8fc85](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/dd8fc851eb25c1a3c0612ec422f859675d26d409))
+
 ### [1.0.1](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.0.0...v1.0.1) (2021-02-18)
 
 

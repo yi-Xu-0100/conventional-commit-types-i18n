@@ -1,6 +1,6 @@
 {
   "name": "@yi-xu/conventional-commit-types-i18n",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "conventional-commit-types internationalization version.",
   "main": "lib/src/index.js",
   "private": false,
