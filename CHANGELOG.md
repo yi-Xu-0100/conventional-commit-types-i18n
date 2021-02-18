@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.1.2](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.1...v1.1.2) (2021-02-18)
+
+
+### Bug Fixes
+
+* **actions:** 🐛 fix scope error ([f500ebe](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/f500ebeddd07f42403808af035860185b996d321))
+
 ### [1.1.1](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.0...v1.1.1) (2021-02-18)
 
 
