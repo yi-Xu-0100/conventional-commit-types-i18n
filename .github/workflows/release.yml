@@ -33,7 +33,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            return context.repo.repo;
+            return context.repo.owner;
 
       - name: Setup node
         uses: actions/setup-node@v2.1.4
