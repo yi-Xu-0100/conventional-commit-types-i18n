@@ -31,6 +31,12 @@ jobs:
         with:
           registry-url: 'https://npm.pkg.github.com'
 
+      - name: Setup package
+        run: |
+          npm install
+          npm run build
+          npm run locale
+
       - name: Publish package to GPR
         run: npm publish
         env:
@@ -41,12 +47,6 @@ jobs:
         with:
           node-version: '12.x'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: Setup package
-        run: |
-          npm install
-          npm run build
-          npm run locale
 
       - name: Publish package to npmjs
         run: npm publish
