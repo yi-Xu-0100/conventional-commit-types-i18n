@@ -27,12 +27,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
 
+      - name: Get repository owner
+        uses: actions/github-script@v3.1.0
+        id: get-repo-owner
+        with:
+          result-encoding: string
+          script: |
+            return context.repo.repo;
+
       - name: Setup node
         uses: actions/setup-node@v2.1.4
         with:
           node-version: 12
           registry-url: 'https://registry.npmjs.org'
-          scope: '@yi-xu'
+          scope: '@${{ steps.get-repo-owner.outputs.result }}'
 
       - name: Setup package
         run: |
@@ -49,7 +57,7 @@ jobs:
         with:
           node-version: 12
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@yi-xu'
+          scope: '@${{ steps.get-repo-owner.outputs.result }}'
 
       - name: Authenticate with the GPR
         run: |
