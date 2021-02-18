@@ -1,0 +1,54 @@
+name: release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+    steps:
+      - name: Check release
+        uses: GoogleCloudPlatform/release-please-action@v2.19.1
+        id: release
+        with:
+          release-type: node
+          package-name: conventional-commit-types-i18n
+          bump-minor-pre-major: true
+
+  publish-package:
+    runs-on: ubuntu-latest
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.3.4
+
+      - uses: actions/setup-node@v2.1.4
+        with:
+          registry-url: 'https://npm.pkg.github.com'
+
+      - name: Publish package to GPR
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup node
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Setup package
+        run: |
+          npm install
+          npm run build
+          npm run locale
+
+      - name: Publish package to npmjs
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

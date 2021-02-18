@@ -5,13 +5,13 @@
   "main": "lib/src/index.js",
   "private": false,
   "scripts": {
-    "postinstall": "husky install",
+    "_postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
-    "build": "rimraf lib/ coverage/ && tsc && node lib/tools/publish.js",
-    "locale": "copy locale/ lib/locale/",
-    "coverage": "npm run build && jest --coverage",
-    "test": "npm run build && jest",
+    "build": "rimraf lib/src/ lib/tools/ && tsc && npm run format",
+    "locale": "rimraf lib/locale/ && node lib/tools/publish.js",
+    "coverage": "rimraf coverage/ && jest --coverage",
+    "test": "jest && npm run lint-check",
     "format": "prettier --write \"**/*.{ts,md,json,yml,yaml}\"",
     "lint-check": "tslint -p tsconfig.json && prettier --check \"**/*.{ts,md,json,yml,yaml}\""
   },
@@ -27,7 +27,8 @@
     ]
   },
   "files": [
-    "lib/**/*"
+    "lib/src/",
+    "lib/locale/"
   ],
   "jest": {
     "coverageDirectory": "coverage",
