@@ -28,3 +28,9 @@ npm i @yi-xu-0100/conventional-commit-types-i18n
 ## 📄 License
 
 - [MIT](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/LICENSE)
+
+## 🎉 Thanks
+
+- [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
+- [conventional-commit-types-zh-cn](https://github.com/FieldTech/conventional-commit-types-zh-cn)
+- [vscode-conventional-commits](https://github.com/vivaxy/vscode-conventional-commits)
