@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.3.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.2.0...v1.3.0) (2021-02-22)
+
+
+### Features
+
+* ⚡️ Exported function returns json instead of string ([a3a4744](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/a3a4744b856879bc2e63a67015c75427979a3356))
+
+
+### Performance Improvements
+
+* **zh-cn:** 💬 localize the title of types ([42ca895](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/42ca89589db4acc1e9e864a93b5423f196826837))
+
 ## [1.2.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.1.2...v1.2.0) (2021-02-18)
 
 
