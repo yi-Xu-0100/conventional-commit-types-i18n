@@ -27,7 +27,7 @@ npm i @yi-xu-0100/conventional-commit-types-i18n
 
 ## ✅ Support
 
-|    localization    |   support    |                   Author                   |
+|      Language      | Locale files |                Contributors                |
 | :----------------: | :----------: | :----------------------------------------: |
 |      English       |  [en.json]   |        [conventional-commit-types]         |
 | Simplified Chinese | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
@@ -47,7 +47,7 @@ npm i @yi-xu-0100/conventional-commit-types-i18n
 
 ## 🎉 Thanks
 
-- [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
-- [conventional-commit-types-zh-cn](https://github.com/FieldTech/conventional-commit-types-zh-cn)
-- [vscode-conventional-commits](https://github.com/vivaxy/vscode-conventional-commits)
+- [vscode-conventional-commits](https://github.com/vivaxy/vscode-conventional-commits).
+- [conventional-commit-types](https://github.com/commitizen/conventional-commit-types) for the English localization.
+- [conventional-commit-types-zh-cn](https://github.com/FieldTech/conventional-commit-types-zh-cn) for the Simplified Chinese localization.
 - [Fabio Di Stasio](https://github.com/Fabio286) for the Italian localization.
