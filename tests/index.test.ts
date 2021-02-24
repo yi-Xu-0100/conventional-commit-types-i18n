@@ -6,6 +6,7 @@ describe('conventionalCommitsTypes() function test', () => {
   it.each([
     ['en.json', undefined],
     ['en.json', 'en'],
+    ['it.json', 'it'],
     ['zh-cn.json', 'zh-cn']
   ])("should return content of %s when input is '%s'", (fileName, locale) => {
     const result = conventionalCommitsTypes(locale);
