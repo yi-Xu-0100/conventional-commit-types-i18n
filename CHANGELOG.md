@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.3.0...v1.4.0) (2021-02-24)
+
+
+### Features
+
+* italian localization ([#9](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/issues/9)) ([0a30a0b](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/0a30a0b8447ba1ef2163ddafaba9bd75c4d220ce))
+
+
+### Bug Fixes
+
+* 🐛 missing fallback translation when no locale available ([#11](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/issues/11)) ([bee13a8](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/bee13a82f2396daf169d3d1df932c25b717457fa))
+
+
+### Performance Improvements
+
+* ⚡️ Add test for empty string input ([b40fe3a](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/b40fe3a4e9635dd24b9e7f38c42bb2d35862879d))
+
 ## [1.3.0](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.2.0...v1.3.0) (2021-02-22)
 
 
