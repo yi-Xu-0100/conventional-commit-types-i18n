@@ -25,6 +25,22 @@ Release in [NPM](https://www.npmjs.com/package/@yi-xu-0100/conventional-commit-t
 npm i @yi-xu-0100/conventional-commit-types-i18n
 ```
 
+## ✅ Support
+
+|    localization    |   support    |                   Author                   |
+| :----------------: | :----------: | :----------------------------------------: |
+|      English       |  [en.json]   |        [conventional-commit-types]         |
+| Simplified Chinese | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
+|      Italian       |  [it.json]   |             [Fabio Di Stasio]              |
+
+[en.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/en.json
+[conventional-commit-types]: https://github.com/commitizen/conventional-commit-types
+[zh-cn.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/zh-cn.json
+[yi_xu]: https://github.com/yi-Xu-0100
+[conventional-commit-types-zh-cn]: https://github.com/FieldTech/conventional-commit-types-zh-cn
+[it.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/it.json
+[fabio di stasio]: https://github.com/Fabio286
+
 ## 📄 License
 
 - [MIT](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/LICENSE)
