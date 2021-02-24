@@ -5,6 +5,7 @@ import { conventionalCommitsTypes } from '../src/index';
 describe('conventionalCommitsTypes() function test', () => {
   it.each([
     ['en.json', undefined],
+    ['en.json', ''],
     ['en.json', 'unknown-locale'],
     ['en.json', 'en'],
     ['it.json', 'it'],
