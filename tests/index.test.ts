@@ -5,6 +5,7 @@ import { conventionalCommitsTypes } from '../src/index';
 describe('conventionalCommitsTypes() function test', () => {
   it.each([
     ['en.json', undefined],
+    ['en.json', 'unknown-locale'],
     ['en.json', 'en'],
     ['zh-cn.json', 'zh-cn']
   ])("should return content of %s when input is '%s'", (fileName, locale) => {
