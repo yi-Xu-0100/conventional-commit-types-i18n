@@ -34,3 +34,4 @@ npm i @yi-xu-0100/conventional-commit-types-i18n
 - [conventional-commit-types](https://github.com/commitizen/conventional-commit-types)
 - [conventional-commit-types-zh-cn](https://github.com/FieldTech/conventional-commit-types-zh-cn)
 - [vscode-conventional-commits](https://github.com/vivaxy/vscode-conventional-commits)
+- [Fabio Di Stasio](https://github.com/Fabio286) for the Italian localization.
