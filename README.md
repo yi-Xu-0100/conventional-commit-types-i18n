@@ -19,10 +19,20 @@ Release in [NPM](https://www.npmjs.com/package/@yi-xu-0100/conventional-commit-t
 [![clones](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-conventional-commit-types-i18n/clones.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-conventional-commit-types-i18n)
 [![clones per week](https://raw.githubusercontent.com/yi-Xu-0100/traffic2badge/traffic/traffic-conventional-commit-types-i18n/clones_per_week.svg)](https://github.com/yi-Xu-0100/traffic2badge/tree/traffic#-conventional-commit-types-i18n)
 
-## 🚀 usage
+## 🚀 Usage
+
+### ⚡ Installation
 
 ```bash
 npm i @yi-xu-0100/conventional-commit-types-i18n
+```
+
+### 🎨 Example
+
+```js
+import getTypes from '@yi-xu-0100/conventional-commit-types-i18n';
+const conventionalCommitsTypes = getTypes('en');
+console.log(conventionalCommitsTypes.types['feat'].title); // Features
 ```
 
 ## ✅ Support

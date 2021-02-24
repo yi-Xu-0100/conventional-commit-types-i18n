@@ -12,7 +12,7 @@
     "build": "rimraf lib/src/ lib/tools/ && tsc && npm run format",
     "locale": "rimraf lib/locale/ && node lib/tools/publish.js",
     "coverage": "rimraf coverage/ && jest --coverage",
-    "test": "jest && npm run lint-check",
+    "test": "npm run format && jest && npm run lint-check",
     "format": "prettier --write \"**/*.{ts,md,json,yml,yaml}\"",
     "lint-check": "tslint -p tsconfig.json && prettier --check \"**/*.{ts,md,json,yml,yaml}\""
   },
