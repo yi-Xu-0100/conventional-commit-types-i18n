@@ -43,6 +43,7 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 | Simplified Chinese | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
 |      Italian       |  [it.json]   |             [Fabio Di Stasio]              |
 |       French       |  [fr.json]   |             [Google Translate]             |
+|       German       |  [de.json]   |             [Google Translate]             |
 
 [en.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/en.json
 [conventional-commit-types]: https://github.com/commitizen/conventional-commit-types
@@ -51,8 +52,9 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 [conventional-commit-types-zh-cn]: https://github.com/FieldTech/conventional-commit-types-zh-cn
 [it.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/it.json
 [fabio di stasio]: https://github.com/Fabio286
-[it.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/fr.json
+[fr.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/fr.json
 [google translate]: https://translate.google.com/
+[de.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/de.json
 
 ## 📄 License
 
