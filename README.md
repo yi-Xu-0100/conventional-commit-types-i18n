@@ -37,13 +37,16 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 
 ## ✅ Support
 
+Available locales are as same as [the available display languages of `Visual Studio Code`](https://code.visualstudio.com/docs/getstarted/locales).
+
 |      Language       | Locale files |                Contributors                |
 | :-----------------: | :----------: | :----------------------------------------: |
 |       English       |  [en.json]   |        [conventional-commit-types]         |
 | Simplified Chinese  | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
-|       Italian       |  [it.json]   |             [Fabio Di Stasio]              |
+| Traditional Chinese | [zh-tw.json] |             [Google Translate]             |
 |       French        |  [fr.json]   |             [Google Translate]             |
 |       German        |  [de.json]   |             [Google Translate]             |
+|       Italian       |  [it.json]   |             [Fabio Di Stasio]              |
 |       Spanish       |  [es.json]   |             [Google Translate]             |
 |      Japanese       |  [ja.json]   |             [Google Translate]             |
 |       Korean        |  [ko.json]   |             [Google Translate]             |
@@ -55,14 +58,15 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 
 [en.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/en.json
 [conventional-commit-types]: https://github.com/commitizen/conventional-commit-types
-[zh-cn.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/zh-cn.json
-[yi_xu]: https://github.com/yi-Xu-0100
 [conventional-commit-types-zh-cn]: https://github.com/FieldTech/conventional-commit-types-zh-cn
-[it.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/it.json
+[yi_xu]: https://github.com/yi-Xu-0100
 [fabio di stasio]: https://github.com/Fabio286
-[fr.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/fr.json
 [google translate]: https://translate.google.com/
+[zh-cn.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/zh-cn.json
+[zh-tw.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/zh-tw.json
+[fr.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/fr.json
 [de.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/de.json
+[it.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/it.json
 [es.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/es.json
 [ja.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/ja.json
 [ko.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/ko.json

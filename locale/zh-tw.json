@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "新功能",
+      "title": "功能"
+    },
+    "fix": {
+      "description": "錯誤修復",
+      "title": "錯誤修復"
+    },
+    "docs": {
+      "description": "文檔僅更改",
+      "title": "文檔"
+    },
+    "style": {
+      "description": "不影響代碼含義的修改（空白，格式，缺少分號等）",
+      "title": "樣式"
+    },
+    "refactor": {
+      "description": "代碼更改無法修復錯誤或添加功能",
+      "title": "代碼重構"
+    },
+    "perf": {
+      "description": "更改代碼以提高性能",
+      "title": "性能改進"
+    },
+    "test": {
+      "description": "增加遺漏的測試或對現有測試進行更正",
+      "title": "測試"
+    },
+    "build": {
+      "description": "影響構建系統或外部依賴項的更改（示例範圍：gulp, broccoli, npm）",
+      "title": "內置"
+    },
+    "ci": {
+      "description": "更改了我們的 CI 配置文件和腳本（範圍示例：Travis，Circle，BrowserStack，SauceLabs）",
+      "title": "連續集成"
+    },
+    "chore": {
+      "description": "其他不會修改 src 或測試文件的更改",
+      "title": "雜務處理"
+    },
+    "revert": {
+      "description": "撤消上一次提交",
+      "title": "還原"
+    }
+  }
+}
