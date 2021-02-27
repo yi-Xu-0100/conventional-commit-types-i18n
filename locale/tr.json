@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "Yeni bir özellik",
+      "title": "Özellikler"
+    },
+    "fix": {
+      "description": "Bir hata düzeltmesi",
+      "title": "Hata Düzeltmeleri"
+    },
+    "docs": {
+      "description": "Yalnızca belgeler değişir",
+      "title": "Belgeler"
+    },
+    "style": {
+      "description": "Kodun anlamını etkilemeyen değişiklikler (beyaz boşluk, biçimlendirme, eksik noktalı virgül, vb.)",
+      "title": "Stiller"
+    },
+    "refactor": {
+      "description": "Bir hatayı düzelten veya bir özellik eklemeyen bir kod değişikliği",
+      "title": "Kod Yeniden Düzenleme"
+    },
+    "perf": {
+      "description": "Performansı artıran bir kod değişikliği",
+      "title": "Performans İyileştirmeleri"
+    },
+    "test": {
+      "description": "Eksik testleri ekleme veya mevcut testleri düzeltme",
+      "title": "Testler"
+    },
+    "build": {
+      "description": "Derleme sistemini veya harici bağımlılıkları etkileyen değişiklikler (örnek kapsamlar: gulp, broccoli, npm)",
+      "title": "Yapılar"
+    },
+    "ci": {
+      "description": "CI yapılandırma dosyalarımızda ve komut dosyalarımızda değişiklikler (örnek kapsamlar: Travis, Circle, BrowserStack, SauceLabs)",
+      "title": "Sürekli Entegrasyonlar"
+    },
+    "chore": {
+      "description": "src veya test dosyalarını değiştirmeyen diğer değişiklikler",
+      "title": "İşler"
+    },
+    "revert": {
+      "description": "Önceki bir kaydı geri döndürür",
+      "title": "Geri Döndürmeler"
+    }
+  }
+}
