@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "Una nueva característica",
+      "title": "Funciones"
+    },
+    "fix": {
+      "description": "Una corrección de errores",
+      "title": "Corrección de errores"
+    },
+    "docs": {
+      "description": "La documentación solo cambia",
+      "title": "Documentación"
+    },
+    "style": {
+      "description": "Cambios que no afectan el significado del código (espacios en blanco, formato, punto y coma que faltan, etc.)",
+      "title": "Estilos"
+    },
+    "refactor": {
+      "description": "Un cambio de código que no corrige un error ni agrega una función",
+      "title": "Refactorización de código"
+    },
+    "perf": {
+      "description": "Un cambio de código que mejora el rendimiento",
+      "title": "Mejoras de rendimiento"
+    },
+    "test": {
+      "description": "Agregar pruebas faltantes o corregir pruebas existentes",
+      "title": "Pruebas"
+    },
+    "build": {
+      "description": "Cambios que afectan el sistema de compilación o las dependencias externas (ámbitos de ejemplo: gulp, broccoli, npm)",
+      "title": "Construye"
+    },
+    "ci": {
+      "description": "Cambios en nuestros scripts y archivos de configuración de CI (ámbitos de ejemplo: Travis, Circle, BrowserStack, SauceLabs)",
+      "title": "Integraciones continuas"
+    },
+    "chore": {
+      "description": "Otros cambios que no modifican src ni archivos de prueba",
+      "title": "Tareas"
+    },
+    "revert": {
+      "description": "Revierte una confirmación anterior",
+      "title": "Revierte"
+    }
+  }
+}
