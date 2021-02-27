@@ -37,19 +37,20 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 
 ## ✅ Support
 
-|      Language      | Locale files |                Contributors                |
-| :----------------: | :----------: | :----------------------------------------: |
-|      English       |  [en.json]   |        [conventional-commit-types]         |
-| Simplified Chinese | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
-|      Italian       |  [it.json]   |             [Fabio Di Stasio]              |
-|       French       |  [fr.json]   |             [Google Translate]             |
-|       German       |  [de.json]   |             [Google Translate]             |
-|      Spanish       |  [es.json]   |             [Google Translate]             |
-|      Japanese      |  [ja.json]   |             [Google Translate]             |
-|       Korean       |  [ko.json]   |             [Google Translate]             |
-|      Russian       |  [ru.json]   |             [Google Translate]             |
-|     Bulgarian      |  [bg.json]   |             [Google Translate]             |
-|     Hungarian      |  [hu.json]   |             [Google Translate]             |
+|      Language       | Locale files |                Contributors                |
+| :-----------------: | :----------: | :----------------------------------------: |
+|       English       |  [en.json]   |        [conventional-commit-types]         |
+| Simplified Chinese  | [zh-cn.json] | [yi_Xu], [conventional-commit-types-zh-cn] |
+|       Italian       |  [it.json]   |             [Fabio Di Stasio]              |
+|       French        |  [fr.json]   |             [Google Translate]             |
+|       German        |  [de.json]   |             [Google Translate]             |
+|       Spanish       |  [es.json]   |             [Google Translate]             |
+|      Japanese       |  [ja.json]   |             [Google Translate]             |
+|       Korean        |  [ko.json]   |             [Google Translate]             |
+|       Russian       |  [ru.json]   |             [Google Translate]             |
+|      Bulgarian      |  [bg.json]   |             [Google Translate]             |
+|      Hungarian      |  [hu.json]   |             [Google Translate]             |
+| Portuguese (Brazil) | [pt-br.json] |             [Google Translate]             |
 
 [en.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/en.json
 [conventional-commit-types]: https://github.com/commitizen/conventional-commit-types
@@ -67,6 +68,7 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 [ru.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/ru.json
 [bg.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/bg.json
 [hu.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/hu.json
+[pt-br.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/pt-br.json
 
 ## 📄 License
 
