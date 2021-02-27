@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "새로운 기능",
+      "title": "기능"
+    },
+    "fix": {
+      "description": "버그 수정",
+      "title": "버그 수정"
+    },
+    "docs": {
+      "description": "문서 만 변경됨",
+      "title": "문서"
+    },
+    "style": {
+      "description": "코드의 의미에 영향을주지 않는 변경 사항 (공백, 서식, 세미콜론 누락 등)",
+      "title": "스타일"
+    },
+    "refactor": {
+      "description": "버그를 수정하거나 기능을 추가하지 않는 코드 변경",
+      "title": "코드 리팩토링"
+    },
+    "perf": {
+      "description": "성능을 향상시키는 코드 변경",
+      "title": "성능 향상"
+    },
+    "test": {
+      "description": "누락 된 테스트 추가 또는 기존 테스트 수정",
+      "title": "테스트"
+    },
+    "build": {
+      "description": "빌드 시스템 또는 외부 종속성에 영향을 미치는 변경 사항 (예 : gulp, broccoli, npm)",
+      "title": "빌드"
+    },
+    "ci": {
+      "description": "CI 구성 파일 및 스크립트 변경 (예시 범위 : Travis, Circle, BrowserStack, SauceLabs)",
+      "title": "지속적인 통합"
+    },
+    "chore": {
+      "description": "src 또는 테스트 파일을 수정하지 않는 기타 변경 사항",
+      "title": "Chores"
+    },
+    "revert": {
+      "description": "이전 커밋을 되돌립니다",
+      "title": "되돌리기"
+    }
+  }
+}
