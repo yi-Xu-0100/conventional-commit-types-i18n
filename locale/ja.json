@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "新機能",
+      "title": "機能"
+    },
+    "fix": {
+      "description": "バグ修正",
+      "title": "バグ修正"
+    },
+    "docs": {
+      "description": "ドキュメントは変更されるだけです",
+      "title": "ドキュメント"
+    },
+    "style": {
+      "description": "コードの意味に影響を与えない変更（空白、書式設定、セミコロンの欠落など）",
+      "title": "スタイル"
+    },
+    "refactor": {
+      "description": "バグを修正せず、機能を追加しないコード変更",
+      "title": "コードリファクタリング"
+    },
+    "perf": {
+      "description": "パフォーマンスを向上させるコード変更",
+      "title": "パフォーマンスの向上"
+    },
+    "test": {
+      "description": "不足しているテストの追加または既存のテストの修正",
+      "title": "テスト"
+    },
+    "build": {
+      "description": "ビルドシステムまたは外部の依存関係に影響する変更（スコープの例：gulp、broccoli、npm）",
+      "title": "ビルド"
+    },
+    "ci": {
+      "description": "CI構成ファイルとスクリプトの変更（スコープの例：Travis、Circle、BrowserStack、SauceLabs）",
+      "title": "継続的インテグレーション"
+    },
+    "chore": {
+      "description": "srcまたはテストファイルを変更しないその他の変更",
+      "title": "Chores"
+    },
+    "revert": {
+      "description": "以前のコミットを元に戻します",
+      "title": "元に戻す"
+    }
+  }
+}
