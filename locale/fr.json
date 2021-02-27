@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "Une nouvelle fonctionnalité",
+      "title": "Fonctionnalités"
+    },
+    "fix": {
+      "description": "Une correction de bogue",
+      "title": "Corrections de bogues"
+    },
+    "docs": {
+      "description": "La documentation ne change que",
+      "title": "Documentation"
+    },
+    "style": {
+      "description": "Modifications n'affectant pas la signification du code (espace blanc, formatage, points-virgules manquants, etc.)",
+      "title": "Styles"
+    },
+    "refactor": {
+      "description": "Un changement de code qui ne corrige pas de bogue ni n'ajoute de fonctionnalité",
+      "title": "Refactoring du code"
+    },
+    "perf": {
+      "description": "Un changement de code qui améliore les performances",
+      "title": "Améliorations des performances"
+    },
+    "test": {
+      "description": "Ajout de tests manquants ou correction de tests existants",
+      "title": "Tests"
+    },
+    "build": {
+      "description": "Modifications qui affectent le système de construction ou les dépendances externes (exemples de portées: gulp, brocoli, npm)",
+      "title": "Construit"
+    },
+    "ci": {
+      "description": "Modifications de nos fichiers de configuration CI et scripts (exemples de portées: Travis, Circle, BrowserStack, SauceLabs)",
+      "title": "Intégrations continues"
+    },
+    "chore": {
+      "description": "Autres changements qui ne modifient pas les fichiers src ou test",
+      "title": "Corvées"
+    },
+    "revert": {
+      "description": "Annule un commit précédent",
+      "title": "Reverts"
+    }
+  }
+}
