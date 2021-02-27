@@ -1,0 +1,48 @@
+{
+  "types": {
+    "feat": {
+      "description": "Új funkció",
+      "title": "Jellemzők"
+    },
+    "fix": {
+      "description": "Hibajavítás",
+      "title": "Hibajavítások"
+    },
+    "docs": {
+      "description": "Csak a dokumentáció változik",
+      "title": "Dokumentáció"
+    },
+    "style": {
+      "description": "Olyan változtatások, amelyek nem befolyásolják a kód jelentését (szóköz, formázás, hiányzó pontosvesszők stb.)",
+      "title": "Stílusok"
+    },
+    "refactor": {
+      "description": "Olyan kódváltozás, amely nem javítja ki a hibát, és nem ad hozzá funkciót",
+      "title": "Kódjavítás"
+    },
+    "perf": {
+      "description": "A teljesítményt javító kódváltozás",
+      "title": "Teljesítmény-fejlesztések"
+    },
+    "test": {
+      "description": "Hiányzó tesztek hozzáadása vagy meglévő tesztek kijavítása",
+      "title": "Tesztek"
+    },
+    "build": {
+      "description": "Az összeállítási rendszert vagy a külső függőségeket befolyásoló változások (például hatókörök: gulp, broccoli, npm)",
+      "title": "Épít"
+    },
+    "ci": {
+      "description": "Változások a CI konfigurációs fájljainkban és szkriptjeinkben (például hatókörök: Travis, Circle, BrowserStack, SauceLabs)",
+      "title": "Folyamatos integrációk"
+    },
+    "chore": {
+      "description": "Egyéb változások, amelyek nem módosítják az src-t vagy a tesztfájlokat",
+      "title": "Házimunkák"
+    },
+    "revert": {
+      "description": "Visszaállít egy korábbi elkötelezettséget",
+      "title": "Visszatér"
+    }
+  }
+}

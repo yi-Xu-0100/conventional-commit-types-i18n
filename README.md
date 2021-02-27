@@ -49,6 +49,7 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 |       Korean       |  [ko.json]   |             [Google Translate]             |
 |      Russian       |  [ru.json]   |             [Google Translate]             |
 |     Bulgarian      |  [bg.json]   |             [Google Translate]             |
+|     Hungarian      |  [hu.json]   |             [Google Translate]             |
 
 [en.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/en.json
 [conventional-commit-types]: https://github.com/commitizen/conventional-commit-types
@@ -65,6 +66,7 @@ console.log(conventionalCommitsTypes.types['feat'].title); // Features
 [ko.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/ko.json
 [ru.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/ru.json
 [bg.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/bg.json
+[hu.json]: https://github.com/yi-Xu-0100/conventional-commit-types-i18n/blob/main/locale/hu.json
 
 ## 📄 License
 
