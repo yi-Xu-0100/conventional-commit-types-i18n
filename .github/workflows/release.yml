@@ -12,7 +12,7 @@ jobs:
       release_created: ${{ steps.release.outputs.release_created }}
     steps:
       - name: Check release
-        uses: GoogleCloudPlatform/release-please-action@v2.21
+        uses: GoogleCloudPlatform/release-please-action@v2.22
         id: release
         with:
           release-type: node
