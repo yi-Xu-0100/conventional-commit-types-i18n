@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { resolve } from 'path';
-import getTypes, { conventionalCommitsTypes } from '../src/index';
+import _types, { getTypes, conventionalCommitsTypes } from '../src/index';
 
 describe('conventionalCommitsTypes and getTypes function test', () => {
   it.each([
@@ -25,8 +25,10 @@ describe('conventionalCommitsTypes and getTypes function test', () => {
   ])("should return content of %s when input is '%s'", (fileName, locale) => {
     const result = conventionalCommitsTypes(locale);
     const _result = getTypes(locale);
+    const __result = _types(locale);
     const getLocaleJSON = JSON.parse(readFileSync(resolve(__dirname, `../locale/${fileName}`), 'utf8'));
     expect(result.types).toEqual(getLocaleJSON.types);
     expect(_result.types).toEqual(getLocaleJSON.types);
+    expect(__result.types).toEqual(getLocaleJSON.types);
   });
 });

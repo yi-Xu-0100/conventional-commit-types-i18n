@@ -30,7 +30,7 @@ npm i @yi-xu-0100/conventional-commit-types-i18n
 ### 🎨 Example
 
 ```js
-import getTypes from '@yi-xu-0100/conventional-commit-types-i18n';
+const { getTypes } = require('@yi-xu-0100/conventional-commit-types-i18n');
 const conventionalCommitsTypes = getTypes('en');
 console.log(conventionalCommitsTypes.types['feat'].title); // Features
 ```
