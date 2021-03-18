@@ -33,6 +33,6 @@ jobs:
       - name: Enhance PR title
         env:
           number: ${{ github.event.pull_request.number }}
-          title: ${{ step.check.outputs.title }}
+          title: ${{ steps.check.outputs.title }}
         run: |
           gh pr edit ${{ env.number }} --title 'chore(deps): ⬆️ ${{ env.title }}'
