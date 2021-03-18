@@ -1,0 +1,20 @@
+name: 'enhance-dependabot-PR-title'
+
+on:
+  pull_request_target:
+    types: [labeled]
+
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  run:
+    name: build
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'test')
+    steps:
+      - name: test PR event
+        run: |
+          echo ${{ github.event.pull_request.number }}
+          echo ${{ github.event.pull_request.pull_request.title }}
+          echo ${{ github.event.pull_request.title }}
