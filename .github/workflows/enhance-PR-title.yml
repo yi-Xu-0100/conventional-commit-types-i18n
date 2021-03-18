@@ -2,7 +2,7 @@ name: 'enhance-PR-title'
 
 on:
   pull_request_target:
-    types: [assigned]
+    types: [labeled]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -11,9 +11,7 @@ jobs:
   run:
     name: enhance PR title
     runs-on: ubuntu-latest
-    if: >
-      contains(github.event.pull_request.labels.*.name, "dependencies") &&
-      !startsWith(${{ github.event.pull_request.title }}, "chore(deps): ⬆️")
+    if: contains(github.event.pull_request.labels.*.name, "auto-update-deps")
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
@@ -23,12 +21,15 @@ jobs:
           echo "[info] PR number: ${{ github.event.pull_request.number }}"
           echo "[info] PR title: ${{ github.event.pull_request.title }}"
 
-      - name: Check PR title context
+      - name: Check PR context
         id: check
         run: |
-          echo "${{ github.event.pull_request.title }}" > title.txt
-          sed "s/^chore.*: \(.*\)/\1/" -i title.txt
-          cat title.txt | while read line; do echo "::set-output name=title::$line"; done
+          echo "${{ github.event.pull_request.title }}" | \
+          sed "s/^chore.*: \(.*\)/\1/" | \
+          xargs echo "::set-output name=title::$1"
+          git log --pretty=format:"%s%n%n%b" -1 | \
+          sed "s/^chore.*: \(.*\)/\1/" | \
+          xargs echo "::set-output name=body::$1"
 
       - name: Enhance PR title
         env:
@@ -36,3 +37,11 @@ jobs:
           title: ${{ steps.check.outputs.title }}
         run: |
           gh pr edit ${{ env.number }} --title "chore(deps): ⬆️ ${{ env.title }}"
+
+      - name: Auto merge dependabot PR
+        env:
+          number: ${{ github.event.pull_request.number }}
+          title: ${{ steps.check.outputs.title }}
+          body: ${{ steps.check.outputs.title }}
+        run: |
+          gh pr merge ${{ env.number }} -s -b "${{ steps.check.outputs.body }}"
