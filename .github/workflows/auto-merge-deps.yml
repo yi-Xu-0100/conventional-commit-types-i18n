@@ -1,4 +1,4 @@
-name: 'enhance-PR-title'
+name: 'auto merge deps'
 
 on:
   pull_request_target:
@@ -9,7 +9,7 @@ env:
 
 jobs:
   run:
-    name: enhance PR title
+    name: auto merge deps
     runs-on: ubuntu-latest
     if: contains(github.event.pull_request.labels.*.name, 'auto-update-deps')
     steps:
@@ -25,10 +25,11 @@ jobs:
         id: check
         run: |
           echo "${{ github.event.pull_request.title }}" | \
-          sed "s/^chore.*: \(.*\)/\1/" | \
+          sed -e "s/^chore.*: \(.*\)/\1/" | \
           xargs echo "::set-output name=title::$1"
           git log --pretty=format:"%s%n%n%b" -1 | \
-          sed "s/^chore.*: \(.*\)/\1/" | \
+          sed -e "0,/^chore.*: \(.*\)/{s/^chore.*: \(.*\)/\1/}" | \
+          sed -e "0,/^/{s/^/chore(deps): ⬆️ /}" | \
           xargs echo "::set-output name=body::$1"
 
       - name: Enhance PR title
