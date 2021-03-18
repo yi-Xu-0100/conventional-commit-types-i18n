@@ -2,7 +2,7 @@ name: 'enhance-dependabot-PR-title'
 
 on:
   pull_request_target:
-    types: [labeled]
+    types: [assigned]
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -11,10 +11,18 @@ jobs:
   run:
     name: build
     runs-on: ubuntu-latest
-    if: contains(github.event.pull_request.labels.*.name, 'test')
+    if: >
+      contains(github.event.pull_request.labels.*.name, 'dependencies') &&
+      !startsWith(${{ github.event.pull_request.title }}, 'chore(deps): ⬆️')
     steps:
-      - name: test PR event
+      - name: Echo PR information
         run: |
-          echo ${{ github.event.pull_request.number }}
-          echo ${{ github.event.pull_request.pull_request.title }}
-          echo ${{ github.event.pull_request.title }}
+          echo '[info] PR number: ${{ github.event.pull_request.number }}'
+          echo '[info] PR title: ${{ github.event.pull_request.title }}'
+
+      - name: Enhance PR title
+        env:
+          number: ${{ github.event.pull_request.number }}
+          title: ${{ github.event.pull_request.title }}
+        run: |
+          gh pr edit ${{ env.number }} --title 'chore(deps): ⬆️ ${{ env.title }}'
