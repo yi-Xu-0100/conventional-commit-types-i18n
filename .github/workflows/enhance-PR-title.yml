@@ -1,4 +1,4 @@
-name: 'enhance-dependabot-PR-title'
+name: 'enhance-PR-title'
 
 on:
   pull_request_target:
@@ -9,20 +9,30 @@ env:
 
 jobs:
   run:
-    name: build
+    name: enhance PR title
     runs-on: ubuntu-latest
     if: >
       contains(github.event.pull_request.labels.*.name, 'dependencies') &&
       !startsWith(${{ github.event.pull_request.title }}, 'chore(deps): ⬆️')
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2.3.4
+
       - name: Echo PR information
         run: |
           echo '[info] PR number: ${{ github.event.pull_request.number }}'
           echo '[info] PR title: ${{ github.event.pull_request.title }}'
 
+      - name: Check PR title context
+        id: check
+        run: |
+          echo '${{ github.event.pull_request.title }}' > title.txt
+          sed 's/^chore.*: \(.*\)/\1/' -i title.txt
+          cat title.txt | while read line; do echo '::set-output name=title::$line'; done
+
       - name: Enhance PR title
         env:
           number: ${{ github.event.pull_request.number }}
-          title: ${{ github.event.pull_request.title }}
+          title: ${{ step.check.outputs.title }}
         run: |
           gh pr edit ${{ env.number }} --title 'chore(deps): ⬆️ ${{ env.title }}'

@@ -17,17 +17,15 @@
     "format": "prettier --write \"**/*.{ts,md,json,yml,yaml}\"",
     "format-check": "prettier --check \"**/*.{ts,md,json,yml,yaml}\"",
     "lint": "npm run format && eslint --fix \"**/*.ts\"",
-    "lint-check": "eslint \"**/*.ts\" && npm run format-check"
+    "lint-check": "eslint \"**/*.{ts,js}\" && npm run format-check"
   },
   "lint-staged": {
-    "**/*.ts": [
+    "**/*.{ts,js}": [
       "prettier --write",
-      "git add",
       "eslint"
     ],
     "**/*.{md,json,yml,yaml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   },
   "files": [
