@@ -1,3 +1,3 @@
 {
-  "conventionalCommits.scopes": ["package.json", "actions", "README", "locale"]
+  "conventionalCommits.scopes": ["package.json", "actions", "README", "locale", "deps"]
 }
