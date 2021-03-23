@@ -6,9 +6,7 @@
   "types": "lib/src/index.d.ts",
   "private": false,
   "scripts": {
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable",
+    "prepare": "husky install",
     "build": "npm run compile",
     "compile": "rimraf lib/ && tsc",
     "precompile": "npm run lint && npm run lint-check",
