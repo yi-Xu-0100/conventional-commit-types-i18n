@@ -20,8 +20,6 @@ All notable changes to this project will be documented in this file. See [standa
 - **locale:** ✨ init French localization ([85d2f4c](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/85d2f4cfe1c8951c37e80388ac1551ac80ed1933))
 - ⚡️ support default export ([4cbe766](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/4cbe7666c80d4be4d0e262ec6340ed7df4d356f3))
 
-### [1.4.1](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.4.0-rc1...v1.4.1) (2021-03-23)
-
 ## [1.4.0-rc1](https://www.github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.4.0...v1.4.0-rc1) (2021-02-27)
 
 ### Features
