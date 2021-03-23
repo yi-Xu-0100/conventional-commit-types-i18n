@@ -40,7 +40,7 @@ jobs:
         run: |
           npx standard-version --skip.commit --skip.tag
           sed 's/^### \[/## [/' -i CHANGELOG.md
-          npx prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
+          npx --no-install prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
 
       - name: Get version from package.json
         uses: actions/github-script@v3.1.0
