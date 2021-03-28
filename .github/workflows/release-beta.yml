@@ -32,8 +32,8 @@ jobs:
         env:
           packageName: '@yi-xu-0100/conventional-commit-types-i18n'
         run: |
-          npm view ${env.packageName} version > version.txt
-          npm view ${env.packageName}@beta version >> version.txt
+          npm view ${{env.packageName}} version > version.txt
+          npm view ${{env.packageName}}@beta version >> version.txt
           version=`sort -rV version.txt | sed -n '1p'`
           npx standard-version --release-as ${version} --skip.changelog --skip.commit --skip.tag
           npx standard-version --prerelease beta --skip.commit --skip.tag
