@@ -1,3 +1,4 @@
 {
-  "conventionalCommits.scopes": ["package.json", "actions", "README", "locale", "deps"]
+  "conventionalCommits.scopes": ["package.json", "actions", "README", "locale", "deps"],
+  "cSpell.words": ["juliangruber", "mindsers"]
 }

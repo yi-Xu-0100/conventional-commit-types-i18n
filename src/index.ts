@@ -13,7 +13,16 @@ import * as hu from '../locale/hu.json';
 import * as pt_br from '../locale/pt-br.json';
 import * as tr from '../locale/tr.json';
 
-export function conventionalCommitsTypes(locale?: string) {
+export interface ConventionalCommitsTypes {
+  types: {
+    [type: string]: {
+      title: string;
+      description: string;
+    };
+  };
+}
+
+export function conventionalCommitsTypes(locale?: string): ConventionalCommitsTypes {
   switch (locale) {
     case 'zh-cn':
       return zh_cn; // Simplified Chinese
@@ -46,7 +55,7 @@ export function conventionalCommitsTypes(locale?: string) {
   }
 }
 
-export function getTypes(locale?: string) {
+export function getTypes(locale?: string): ConventionalCommitsTypes {
   return conventionalCommitsTypes(locale);
 }
 
