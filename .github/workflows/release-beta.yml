@@ -13,21 +13,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup nodejs
-        uses: actions/setup-node@v2.1.5
-        with:
-          node-version: 12
-
-      - uses: actions/cache@v2.1.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Setup package
-        run: npm install
-
       - name: Bump beta version
         env:
           packageName: '@yi-xu-0100/conventional-commit-types-i18n'
@@ -38,7 +23,7 @@ jobs:
           npx standard-version --release-as ${version} --skip.changelog --skip.commit --skip.tag
           npx standard-version --prerelease beta --skip.commit --skip.tag
           sed 's/^### \[/## [/' -i CHANGELOG.md
-          npx --no-install prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
+          npx prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
           rm version.txt
 
       - name: Get version from package.json
@@ -48,6 +33,7 @@ jobs:
           result-encoding: string
           script: |
             const version = require(`${process.env.GITHUB_WORKSPACE}/package.json`).version;
+            core.setOutput('owner', context.repo.owner);
             core.setOutput('version', version);
 
       - name: Get Changelog Entry
@@ -68,3 +54,27 @@ jobs:
           body: ${{ steps.changelog_reader.outputs.changes }}
           prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
           draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
+
+      - name: Setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@${{ steps.version.outputs.owner }}'
+
+      - uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup package
+        run: |
+          npm install
+          npm run build
+
+      - name: Publish beta package to npmjs
+        run: npm publish --tag beta --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
