@@ -5,7 +5,7 @@ on:
 
 jobs:
   build:
-    name: Prepare beta version package
+    name: release beta version
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -13,17 +13,35 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Bump beta version
-        env:
-          packageName: '@yi-xu-0100/conventional-commit-types-i18n'
+      - name: Setup node
+        uses: actions/setup-node@v2.1.5
+        with:
+          node-version: 12
+          registry-url: 'https://registry.npmjs.org'
+          scope: '@${{ github.repository_owner }}'
+
+      - uses: actions/cache@v2.1.4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Setup package
         run: |
-          npm view ${{env.packageName}} version > version.txt
-          npm view ${{env.packageName}}@beta version >> version.txt
+          npm install
+          npm run build
+
+      - name: Bump beta version
+        run: |
+          git tag > version.txt
+          git tag | grep -P 'v\d+\.\d+\.\d+-beta.\d+' -o | xargs git tag -d
+          npx --no-install standard-version --dry-run | sed -e '1!d' -e 's/.*to //g' >> version.txt
           version=`sort -rV version.txt | sed -n '1p'`
-          npx standard-version --release-as ${version} --skip.changelog --skip.commit --skip.tag
-          npx standard-version --prerelease beta --skip.commit --skip.tag
+          npx --no-install standard-version --release-as ${version} --skip.changelog --skip.commit --skip.tag
+          npx --no-install standard-version --prerelease beta --skip.commit --skip.tag
           sed 's/^### \[/## [/' -i CHANGELOG.md
-          npx prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
+          npx --no-install prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
           rm version.txt
 
       - name: Get version from package.json
@@ -33,7 +51,6 @@ jobs:
           result-encoding: string
           script: |
             const version = require(`${process.env.GITHUB_WORKSPACE}/package.json`).version;
-            core.setOutput('owner', context.repo.owner);
             core.setOutput('version', version);
 
       - name: Get Changelog Entry
@@ -54,25 +71,6 @@ jobs:
           body: ${{ steps.changelog_reader.outputs.changes }}
           prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
           draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
-
-      - name: Setup node
-        uses: actions/setup-node@v2.1.5
-        with:
-          node-version: 12
-          registry-url: 'https://registry.npmjs.org'
-          scope: '@${{ steps.version.outputs.owner }}'
-
-      - uses: actions/cache@v2.1.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: Setup package
-        run: |
-          npm install
-          npm run build
 
       - name: Publish beta package to npmjs
         run: npm publish --tag beta --access public
