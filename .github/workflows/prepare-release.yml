@@ -1,5 +1,7 @@
 name: 'prepare release'
+
 on:
+  workflow_dispatch:
   workflow_run:
     workflows: ['release']
     branches: [main]

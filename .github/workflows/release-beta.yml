@@ -2,6 +2,16 @@ name: 'release beta'
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'locale/**'
+      - package*.json
+      - tsconfig.json
+      - index.json
+      - '**/release-beta.yml'
 
 jobs:
   build:

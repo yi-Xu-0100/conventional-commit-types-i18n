@@ -1,16 +1,25 @@
 name: test
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - '**.ts'
+      - 'src/**'
+      - 'locale/**'
       - 'package*.json'
+      - tsconfig.json
+      - index.json
+      - '**/test.yml'
   pull_request:
     paths:
-      - '**.ts'
+      - 'src/**'
+      - 'locale/**'
       - 'package*.json'
+      - tsconfig.json
+      - index.json
+      - '**/test.yml'
 
 jobs:
   test:
