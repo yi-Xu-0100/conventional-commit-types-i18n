@@ -2,22 +2,19 @@ name: 'prepare release'
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ['release']
-    branches: [main]
-    types:
-      - completed
   push:
     branches:
       - main
+    paths:
+      - 'package*.json'
+      - 'src/**'
 
 env:
   BASE_BRANCH: 'main'
   HEAD_BRANCH: 'prepare-release'
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
-  build:
+  preparation:
     name: Prepare release
     runs-on: ubuntu-latest
     steps:
@@ -31,19 +28,12 @@ jobs:
         with:
           node-version: 12
 
-      - uses: actions/cache@v2.1.4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
       - name: Bump version
         run: |
           git tag | grep -P 'v\d+\.\d+\.\d+-beta.\d+' -o | xargs git tag -d
           npx standard-version --skip.commit --skip.tag
           sed 's/^### \[/## [/' -i CHANGELOG.md
-          npx prettier --write 'CHANGELOG.md'  --prose-wrap never --ignore-path './gitignore'
+          npx prettier --write CHANGELOG.md  --prose-wrap never --ignore-path ./gitignore
 
       - name: Get version from package.json
         uses: actions/github-script@v3.1.0
@@ -52,7 +42,6 @@ jobs:
           result-encoding: string
           script: |
             const version = require(`${process.env.GITHUB_WORKSPACE}/package.json`).version;
-            core.setOutput('repo', context.repo.repo);
             core.setOutput('version', version);
             core.setOutput('title', 'chore(release): 🔖 release v' + version);
 
@@ -67,8 +56,8 @@ jobs:
           git remote set-url origin 'https://x-access-token:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git'
           git push -f -u origin '${{ env.HEAD_BRANCH }}'
 
-      - name: Get Changelog Entry
-        id: changelog_reader
+      - name: Get changelog context
+        id: changelog-reader
         uses: mindsers/changelog-reader-action@v2.0.0
         with:
           version: ${{steps.version.outputs.version}}
@@ -78,7 +67,7 @@ jobs:
         uses: actions/github-script@v3.1.0
         id: changelog
         env:
-          CHANGELOG: ${{ steps.changelog_reader.outputs.changes }}
+          CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
         with:
           script: return process.env.CHANGELOG;
 
@@ -89,13 +78,12 @@ jobs:
             -H 'authorization: token ${{secrets.GITHUB_TOKEN}}' \
             -H 'Accept: application/vnd.github.v3+json' \
             'https://api.github.com/repos/${{github.repository}}/pulls' \
-            -d '{"head":"${{ env.HEAD_BRANCH }}","base":"${{ env.BASE_BRANCH }}","title":"${{steps.version.outputs.title}}","body":${{steps.CHANGELOG.outputs.result}},"maintainer_can_modify":true}'
+            -d '{"head":"${{ env.HEAD_BRANCH }}","base":"${{ env.BASE_BRANCH }}","title":"${{steps.version.outputs.title}}","body":${{steps.changelog.outputs.result}},"maintainer_can_modify":true}'
 
       - name: Find pull request
         uses: juliangruber/find-pull-request-action@v1.5.0
         id: find-pull-request
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ env.HEAD_BRANCH }}
 
       - name: Update pull request
@@ -107,4 +95,4 @@ jobs:
             -H 'authorization: token ${{secrets.GITHUB_TOKEN}}' \
             -H 'Accept: application/vnd.github.v3+json' \
             'https://api.github.com/repos/${{github.repository}}/pulls/${{ env.NUMBER }}' \
-            -d '{"base":"${{ env.BASE_BRANCH }}","title":"${{steps.version.outputs.title}}","body":${{steps.CHANGELOG.outputs.result}}}'
+            -d '{"base":"${{ env.BASE_BRANCH }}","title":"${{steps.version.outputs.title}}","body":${{steps.changelog.outputs.result}}}'
