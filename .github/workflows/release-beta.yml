@@ -8,10 +8,7 @@ on:
     paths:
       - 'src/**'
       - 'locale/**'
-      - package*.json
       - tsconfig.json
-      - index.json
-      - '**/release-beta.yml'
 
 jobs:
   build:

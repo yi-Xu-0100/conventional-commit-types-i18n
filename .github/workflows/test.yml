@@ -8,18 +8,12 @@ on:
     paths:
       - 'src/**'
       - 'locale/**'
-      - 'package*.json'
       - tsconfig.json
-      - index.json
-      - '**/test.yml'
   pull_request:
     paths:
       - 'src/**'
       - 'locale/**'
-      - 'package*.json'
       - tsconfig.json
-      - index.json
-      - '**/test.yml'
 
 jobs:
   test:
