@@ -93,6 +93,7 @@ jobs:
           branch: ${{ env.HEAD_BRANCH }}
 
       - name: Update pull request
+        uses: actions/github-script@v3.1.1
         env:
           NUMBER: ${{ steps.find-pull-request.outputs.number }}
           CHANGELOG: ${{ steps.changelog_reader.outputs.changes }}
