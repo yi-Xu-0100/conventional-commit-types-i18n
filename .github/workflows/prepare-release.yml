@@ -65,7 +65,7 @@ jobs:
           version: ${{steps.version.outputs.version}}
           path: ./CHANGELOG.md
 
-      - name: create-pull-request
+      - name: Create pull request
         uses: actions/github-script@v3.1.1
         env:
           CHANGELOG: ${{ steps.changelog_reader.outputs.changes }}
@@ -108,7 +108,7 @@ jobs:
                 base: '${{ env.BASE_BRANCH }}',
                 pull_number: NUMBER,
                 title: '${{steps.version.outputs.title}}',
-                body: `${changelog}`,
+                body: `${CHANGELOG}`,
                 maintainer_can_modify: true
               });
             } catch (e) {
