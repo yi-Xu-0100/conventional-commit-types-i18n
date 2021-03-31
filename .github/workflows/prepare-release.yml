@@ -68,7 +68,7 @@ jobs:
       - name: Create pull request
         uses: actions/github-script@v3.1.1
         env:
-          CHANGELOG: ${{ steps.changelog_reader.outputs.changes }}
+          CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
         with:
           script: |
             const { CHANGELOG } = process.env;
@@ -79,8 +79,7 @@ jobs:
                 head: '${{ env.HEAD_BRANCH }}',
                 base: '${{ env.BASE_BRANCH }}',
                 title: '${{steps.version.outputs.title}}',
-                body: `${CHANGELOG}`,
-                maintainer_can_modify: true
+                body: `${CHANGELOG}`
               });
             } catch (e) {
               core.warning(e.message);
@@ -96,7 +95,7 @@ jobs:
         uses: actions/github-script@v3.1.1
         env:
           NUMBER: ${{ steps.find-pull-request.outputs.number }}
-          CHANGELOG: ${{ steps.changelog_reader.outputs.changes }}
+          CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
         with:
           script: |
             const { NUMBER, CHANGELOG } = process.env;
@@ -108,8 +107,7 @@ jobs:
                 base: '${{ env.BASE_BRANCH }}',
                 pull_number: NUMBER,
                 title: '${{steps.version.outputs.title}}',
-                body: `${CHANGELOG}`,
-                maintainer_can_modify: true
+                body: `${CHANGELOG}`
               });
             } catch (e) {
               core.warning(e.message);
