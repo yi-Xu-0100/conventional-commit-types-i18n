@@ -20,7 +20,7 @@ jobs:
     name: Prepare release
     runs-on: ubuntu-latest
     if: >
-      contains(['push', 'workflow_dispatch'], github.event_name) ||
+      contains('push,workflow_dispatch', github.event_name) ||
       contains(github.event.pull_request.labels.*.name, 'prepare-release')
     steps:
       - name: Checkout code
