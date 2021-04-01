@@ -4,9 +4,6 @@ on:
   pull_request_target:
     types: [labeled]
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   run:
     name: enhance deps PR
@@ -37,18 +34,18 @@ jobs:
 
       - name: Enhance PR title
         env:
-          number: ${{ github.event.pull_request.number }}
-          title: ${{ steps.check.outputs.title }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NUMBER: ${{ github.event.pull_request.number }}
+          TITLE: ${{ steps.check.outputs.title }}
         run: |
-          gh pr edit ${{ env.number }} --title "${{ env.title }}"
+          gh pr edit ${{ env.NUMBER }} --title "${{ env.TITLE }}"
 
       - name: Enhance PR commit message
         env:
-          number: ${{ github.event.pull_request.number }}
-          title: ${{ steps.check.outputs.title }}
-          body: ${{ steps.check.outputs.body }}
+          TITLE: ${{ steps.check.outputs.title }}
+          BODY: ${{ steps.check.outputs.body }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git commit --amend -m "${{ env.title }}" -m "${{ env.body }}"
+          git commit --amend -m "${{ env.TITLE }}" -m "${{ env.BODY }}"
           git push -f

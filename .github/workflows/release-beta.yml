@@ -57,14 +57,15 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const version = require(`${process.env.GITHUB_WORKSPACE}/package.json`).version;
+            const { GITHUB_WORKSPACE } = process.env;
+            const version = require(`${GITHUB_WORKSPACE}/package.json`).version;
             core.setOutput('version', version);
 
       - name: Get Changelog Entry
         id: changelog_reader
         uses: mindsers/changelog-reader-action@v2.0.0
         with:
-          version: ${{steps.version.outputs.version}}
+          version: ${{ steps.version.outputs.version }}
           path: ./CHANGELOG.md
 
       - name: Create release
@@ -73,8 +74,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: v${{steps.version.outputs.version}}
-          release_name: Release v${{steps.version.outputs.version}}
+          tag_name: v${{ steps.version.outputs.version }}
+          release_name: Release v${{ steps.version.outputs.version }}
           body: ${{ steps.changelog_reader.outputs.changes }}
           prerelease: ${{ steps.changelog_reader.outputs.status == 'prereleased' }}
           draft: ${{ steps.changelog_reader.outputs.status == 'unreleased' }}
