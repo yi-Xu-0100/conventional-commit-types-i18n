@@ -8,6 +8,8 @@ on:
     paths:
       - 'package*.json'
       - 'src/**'
+  pull_request_target:
+    types: [labeled]
 
 env:
   BASE_BRANCH: 'main'
@@ -17,6 +19,9 @@ jobs:
   preparation:
     name: Prepare release
     runs-on: ubuntu-latest
+    if: >
+      contains(['push', 'workflow_dispatch'], github.event_name) ||
+      contains(github.event.pull_request.labels.*.name, 'prepare-release')
     steps:
       - name: Checkout code
         uses: actions/checkout@v2.3.4
@@ -65,14 +70,14 @@ jobs:
           version: ${{ steps.version.outputs.version }}
           path: ./CHANGELOG.md
 
-      - name: Create pull request
+      - name: Prepare release PR
         uses: actions/github-script@v3.1.1
         env:
           TITLE: ${{ steps.version.outputs.title }}
           CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
         with:
           script: |
-            const { TITLE, HEAD_BRANCH, BASE_BRANCH, CHANGELOG } = process.env;
+            const { HEAD_BRANCH, BASE_BRANCH, TITLE, CHANGELOG } = process.env;
             const query = {
               owner: context.repo.owner,
               repo: context.repo.repo,
@@ -80,7 +85,8 @@ jobs:
               base: `${BASE_BRANCH}`,
               title: `${TITLE}`,
               body: `${CHANGELOG}`
-            }
+            };
+            core.debug(`query:\n${JSON.stringify(query, null, 2)}`);
             const resp = await github.pulls.list({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -89,10 +95,13 @@ jobs:
                 base: `${BASE_BRANCH}`,
                 direction: 'desc'
             });
+            core.debug(`resp:\n${JSON.stringify(resp, null, 2)}`);
             const pull_number = resp.data[0].number;
             if (!pull_number) {
               await github.pulls.create(query);
             } else {
+              core.info(`[info]: pull_number: ${pull_number}`);
               query.pull_number = pull_number;
               await github.pulls.update(query);
             }
+            core.info(`[info]: Prepare release PR successfully!`);
