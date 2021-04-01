@@ -16,6 +16,25 @@ env:
   HEAD_BRANCH: 'prepare-release'
 
 jobs:
+  label:
+    name: Clear label
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'prepare-release')
+    steps:
+      - name: Clear label
+        uses: actions/github-script@v3.1.1
+        env:
+          NUMBER: ${{ github.event.number }}
+        with:
+          script: |
+            const { NUMBER } = process.env;
+            await github.issues.removeLabel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: NUMBER,
+              name: 'prepare-release',
+            });
+
   preparation:
     name: Prepare release
     runs-on: ubuntu-latest
@@ -84,7 +103,7 @@ jobs:
               head: `${HEAD_BRANCH}`,
               base: `${BASE_BRANCH}`,
               title: `${TITLE}`,
-              body: `${CHANGELOG}`
+              body: `${CHANGELOG}`,
             };
             core.debug(`query:\n${JSON.stringify(query, null, 2)}`);
             const resp = await github.pulls.list({
@@ -93,7 +112,7 @@ jobs:
                 state: 'open',
                 head: `${context.repo.owner}:${HEAD_BRANCH}`,
                 base: `${BASE_BRANCH}`,
-                direction: 'desc'
+                direction: 'desc',
             });
             core.debug(`resp:\n${JSON.stringify(resp, null, 2)}`);
             const pull_number = resp.data[0].number;
