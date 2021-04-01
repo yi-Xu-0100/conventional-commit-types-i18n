@@ -62,53 +62,37 @@ jobs:
         id: changelog-reader
         uses: mindsers/changelog-reader-action@v2.0.0
         with:
-          version: ${{steps.version.outputs.version}}
+          version: ${{ steps.version.outputs.version }}
           path: ./CHANGELOG.md
 
       - name: Create pull request
         uses: actions/github-script@v3.1.1
         env:
+          TITLE: ${{ steps.version.outputs.title }}
           CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
         with:
           script: |
-            const { CHANGELOG } = process.env;
-            try {
-              await github.pulls.create({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                head: '${{ env.HEAD_BRANCH }}',
-                base: '${{ env.BASE_BRANCH }}',
-                title: '${{steps.version.outputs.title}}',
-                body: `${CHANGELOG}`
-              });
-            } catch (e) {
-              core.warning(e.message);
+            const { TITLE, HEAD_BRANCH, BASE_BRANCH, CHANGELOG } = process.env;
+            const query = {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: `${HEAD_BRANCH}`,
+              base: `${BASE_BRANCH}`,
+              title: `${TITLE}`,
+              body: `${CHANGELOG}`
             }
-
-      - name: Find pull request
-        uses: juliangruber/find-pull-request-action@v1.5.0
-        id: find-pull-request
-        with:
-          branch: ${{ env.HEAD_BRANCH }}
-
-      - name: Update pull request
-        uses: actions/github-script@v3.1.1
-        env:
-          NUMBER: ${{ steps.find-pull-request.outputs.number }}
-          CHANGELOG: ${{ steps.changelog-reader.outputs.changes }}
-        with:
-          script: |
-            const { NUMBER, CHANGELOG } = process.env;
-            try {
-              await github.pulls.update({
+            const resp = await github.pulls.list({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                head: '${{ env.HEAD_BRANCH }}',
-                base: '${{ env.BASE_BRANCH }}',
-                pull_number: NUMBER,
-                title: '${{steps.version.outputs.title}}',
-                body: `${CHANGELOG}`
-              });
-            } catch (e) {
-              core.warning(e.message);
+                state: 'open',
+                head: `${context.repo.owner}:${HEAD_BRANCH}`,
+                base: `${BASE_BRANCH}`,
+                direction: 'desc'
+            });
+            const pull_number = resp.data[0].number;
+            if (!pull_number) {
+              await github.pulls.create(query);
+            } else {
+              query.pull_number = pull_number;
+              await github.pulls.update(query);
             }
