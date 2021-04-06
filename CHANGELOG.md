@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.6.0](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.5.0...v1.6.0) (2021-04-06)
+
+### Features
+
+- **type:** ⚡️ add the type definition ([8b024ed](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/commit/8b024ed5248f37082e82a7f22d1a335015f8178b)), closes [vivaxy/vscode-conventional-commits#98](https://github.com/vivaxy/vscode-conventional-commits/issues/98) [#51](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/issues/51)
+
 ## [1.5.0](https://github.com/yi-Xu-0100/conventional-commit-types-i18n/compare/v1.4.0...v1.5.0) (2021-03-23)
 
 ### Features
