@@ -66,7 +66,7 @@ jobs:
         with:
           result-encoding: string
           script: |
-            const version = require(`${process.env.GITHUB_WORKSPACE}/package.json`).version;
+            const version = require('./package.json').version;
             core.setOutput('version', version);
             core.setOutput('title', 'chore(release): 🔖 release v' + version);
 

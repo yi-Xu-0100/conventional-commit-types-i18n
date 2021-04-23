@@ -58,7 +58,7 @@ jobs:
           result-encoding: string
           script: |
             const { GITHUB_WORKSPACE } = process.env;
-            const version = require(`${GITHUB_WORKSPACE}/package.json`).version;
+            const version = require('./package.json').version;
             core.setOutput('version', version);
 
       - name: Get Changelog Entry
