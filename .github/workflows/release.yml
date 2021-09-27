@@ -38,7 +38,7 @@ jobs:
           npx --no-install prettier --write CHANGELOG.md  --prose-wrap never --ignore-path ./gitignore
 
       - name: Get version from package.json
-        uses: actions/github-script@v4.1
+        uses: actions/github-script@v5
         id: version
         with:
           result-encoding: string
